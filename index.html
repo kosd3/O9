@@ -39,23 +39,15 @@
             font-weight: 700;
             color: #1e40af;
         }
-        /* 이미지 스타일 */
-        .main-visual {
-            /* 이미지 원래 스타일 (상단에 있을 때) */
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            width: 100%;
-            max-height: 200px; 
-        }
         /* 참고 이미지 섹션 스타일 */
         .reference-image {
             width: 100%;
             height: auto;
+            max-height: 600px; /* 이미지 최대 높이 제한 */
             object-fit: contain;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: block;
         }
     </style>
 </head>
@@ -70,8 +62,6 @@
             <!-- 수신/발신 정보 -->
             <p class="text-lg text-gray-500 font-medium">수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스</p>
         </header>
-
-        <!-- (이전의 메인 비주얼 영역은 삭제) -->
         
         <!-- 2. 단기 목표 매출 요약 -->
         <div class="mb-10">
@@ -176,11 +166,12 @@
             </div>
         </div>
 
-        <!-- 5. 참고 이미지 섹션 (제일 하단으로 이동) -->
+        <!-- 5. 참고 이미지 섹션 (웹툰 소개 섹션 다음) -->
         <div class="mt-10 pt-6 border-t border-gray-200">
-            <h2 class="text-xl font-bold text-gray-700 mb-4">참고 이미지 (웹툰 스타일 샘플)</h2>
-            <img src="uploaded:KakaoTalk_Photo_2025-08-21-09-11-54-9.jpg-6d1e3641-a90b-46d1-9fb3-3ec819512579" 
-                 alt="오구라 유나 웹툰 샘플" class="reference-image">
+            <h2 class="text-xl font-bold text-gray-700 mb-4">참고 자료: 웹툰 스타일 샘플 이미지</h2>
+            <!-- 사용자가 제공한 구글 드라이브 주소를 웹에서 표시할 수 있도록 변환하여 적용했습니다. -->
+            <img src="https://drive.google.com/uc?export=view&id=1bMcLXQbijc8Y_Vq0NxL5W1Jy5fI0wTFq" 
+                 alt="오구라 유나 웹툰 샘플 이미지" class="reference-image">
         </div>
 
     </div>
