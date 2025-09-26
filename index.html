@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오구라 유나 프로젝트 목표 매출 제안서 (마인즈)</title>
+    <title>오구라 유나 프로젝트 목표 매출 제안서</title>
     <!-- Tailwind CSS 로드 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -16,7 +16,7 @@
             background: #f8fafc; /* 라이트 블루 배경 */
             color: #1e293b;
             min-height: 100vh;
-            padding: 2rem 0;
+            padding: 1rem 0; /* 모바일에서 상하 패딩을 약간 줄임 */
         }
         .proposal-container {
             max-width: 900px;
@@ -24,7 +24,7 @@
             background: #ffffff;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            padding: 1.5rem;
+            padding: 1rem; /* 모바일 패딩 강화 */
             transition: all 0.3s;
         }
         @media (min-width: 768px) {
@@ -43,24 +43,19 @@
         }
         /* 링크 클릭 영역 스타일 */
         .click-area {
-            display: block;
-            position: relative;
+            display: flex; /* flex로 변경 */
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            height: 100px; /* 클릭 영역 확보를 위한 임시 높이 */
-            background-color: #f0f4f8; /* 클릭 가능함을 시각적으로 보여주기 위한 배경색 */
+            height: 80px; /* 모바일에서 높이 약간 줄임 */
+            background-color: #f0f4f8;
             border: 2px dashed #1d4ed8;
             border-radius: 12px;
             margin-top: 1rem;
-            text-align: center;
-            /* line-height 제거 및 flex로 중앙 정렬 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.125rem; /* 모바일 폰트 크기 조정 */
             font-weight: 700;
             color: #1e40af;
             text-decoration: none;
-            overflow: hidden;
             transition: background-color 0.2s;
         }
         .click-area:hover {
@@ -83,61 +78,59 @@
         
         <!-- 언어 선택 버튼 -->
         <div class="text-right mb-4">
-            <!-- 버튼 텍스트는 JS로 동적 처리 -->
             <button id="lang-ko" class="lang-button active text-sm px-3 py-1 border border-gray-300 rounded-l-lg hover:bg-gray-100" data-lang-text="한국어"></button>
             <button id="lang-ja" class="lang-button text-sm px-3 py-1 border border-gray-300 rounded-r-lg hover:bg-gray-100" data-lang-text="日本語"></button>
         </div>
 
         <!-- 1. 제안서 헤더 -->
-        <header class="text-center mb-10">
-            <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2" data-ko="【오구라 유나】 프로젝트 목표 매출 제안서" data-ja="【小倉由菜】プロジェクト 目標売上提案書">
-                <!-- 텍스트는 JS로 처리되므로 그대로 둠 -->
+        <header class="text-center mb-8 sm:mb-10">
+            <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2 leading-snug" data-ko="【오구라 유나】 프로젝트 목표 매출 제안서" data-ja="【小倉由菜】プロジェクト 目標売上提案書">
                 【오구라 유나】 프로젝트 목표 매출 제안서
             </h1>
             <!-- 수신/발신 정보 -->
-            <p class="text-lg text-gray-500 font-medium" data-ko="수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스 (Company S)" data-ja="宛先: 株式会社マインズ (Minds) | 差出: カンパニーS (Company S)">
-                <!-- 텍스트는 JS로 처리되므로 그대로 둠 -->
+            <p class="text-md sm:text-lg text-gray-500 font-medium" data-ko="수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스 (Company S)" data-ja="宛先: 株式会社マインズ (Minds) | 差出: カンパニーS (Company S)">
                 수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스 (Company S)
             </p>
         </header>
         
         <!-- 2. 단기 목표 매출 요약 -->
-        <div class="mb-10">
+        <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="단기 (2025년 4분기) 목표 매출액" data-ja="短期 (2025年 第4四半期) 目標売上高">단기 (2025년 4분기) 목표 매출액</h2>
-            <div class="bg-indigo-50 p-6 rounded-xl shadow-inner">
+            <div class="bg-indigo-50 p-4 sm:p-6 rounded-xl shadow-inner">
                 
                 <!-- 매출 요약 테이블 -->
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto rounded-lg border border-indigo-200">
                     <table class="min-w-full divide-y divide-indigo-200">
                         <thead>
                             <tr class="bg-indigo-100 text-sm font-semibold text-gray-700">
-                                <th class="px-4 py-3 text-left" data-ko="기간" data-ja="期間">기간</th>
-                                <th class="px-4 py-3 text-left" data-ko="아이템" data-ja="アイテム">아이템</th>
-                                <th class="px-4 py-3 text-right" data-ko="매출 목표 (총액)" data-ja="売上目標 (総額)">매출 목표 (총액)</th>
-                                <th class="px-4 py-3 text-right" data-ko="마인즈 기여분/수익분" data-ja="マインズ貢献分/収益分">마인즈 기여분/수익분</th>
+                                <!-- 모바일 최적화를 위해 폰트 크기와 패딩을 줄임 -->
+                                <th class="px-2 py-2 text-left text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="기간" data-ja="期間">기간</th>
+                                <th class="px-2 py-2 text-left text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="아이템" data-ja="アイテム">아이템</th>
+                                <th class="px-2 py-2 text-right text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="매출 목표 (총액)" data-ja="売上目標 (総額)">매출 목표 (총액)</th>
+                                <th class="px-2 py-2 text-right text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="마인즈 기여분/수익분" data-ja="マインズ貢献分/収益分">마인즈 기여분/수익분</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-indigo-100 text-gray-700">
                             <!-- 10월 E-sim -->
                             <tr class="hover:bg-indigo-50 transition-colors">
-                                <td class="px-4 py-3 font-bold" data-ko="10월" data-ja="10月">10월</td>
-                                <td class="px-4 py-3" data-ko="E-sim (150+150+150)" data-ja="E-sim (150+150+150)">E-sim (150+150+150)</td>
-                                <td class="px-4 py-3 text-right font-bold text-gray-800" data-ko="4,500,000 원" data-ja="4,500,000 원">4,500,000 원</td>
-                                <td class="px-4 py-3 text-right" data-ko="-" data-ja="-">-</td>
+                                <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="10월" data-ja="10月">10월</td>
+                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="E-sim (150+150+150)" data-ja="E-sim (150+150+150)">E-sim (150+150+150)</td>
+                                <td class="px-2 py-2 text-right font-bold text-gray-800 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="4,500,000 원" data-ja="4,500,000 원">4,500,000 원</td>
+                                <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="-" data-ja="-">-</td>
                             </tr>
                             <!-- 11월 향수 -->
                             <tr class="hover:bg-indigo-50 transition-colors">
-                                <td class="px-4 py-3 font-bold" data-ko="11월" data-ja="11月">11월</td>
-                                <td class="px-4 py-3" data-ko="남성용 향수 런칭" data-ja="男性用香水ローンチ">남성용 향수 런칭</td>
-                            <td class="px-4 py-3 text-right font-bold text-green-700" data-ko="7,000,000 원" data-ja="7,000,000 원">7,000,000 원</td>
-                            <td class="px-4 py-3 text-right text-green-600" data-ko="50% 협의 (350만원 상당)" data-ja="50%協議 (350万円相当)">50% 협의 (350만원 상당)</td>
+                                <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="11월" data-ja="11月">11월</td>
+                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="남성용 향수 런칭" data-ja="男性用香水ローンチ">남성용 향수 런칭</td>
+                            <td class="px-2 py-2 text-right font-bold text-green-700 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="7,000,000 원" data-ja="7,000,000 원">7,000,000 원</td>
+                            <td class="px-2 py-2 text-right text-green-600 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="50% 협의 (350만원 상당)" data-ja="50%協議 (350万円相当)">50% 협의 (350만원 상당)</td>
                             </tr>
                             <!-- 12월 협의 중 -->
                             <tr class="hover:bg-indigo-50 transition-colors">
-                                <td class="px-4 py-3 font-bold" data-ko="12월" data-ja="12月">12월</td>
-                                <td class="px-4 py-3" data-ko="신규 프로젝트" data-ja="新規プロジェクト">신규 프로젝트</td>
-                                <td class="px-4 py-3 text-right" data-ko="협의 중" data-ja="協議中">협의 중</td>
-                                <td class="px-4 py-3 text-right" data-ko="협의 중" data-ja="協議中">협의 중</td>
+                                <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="12월" data-ja="12月">12월</td>
+                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="신규 프로젝트" data-ja="新規プロジェクト">신규 프로젝트</td>
+                                <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="협의 중" data-ja="協議中">협의 중</td>
+                                <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="협의 중" data-ja="協議中">협의 중</td>
                             </tr>
                         </tbody>
                     </table>
@@ -146,10 +139,10 @@
         </div>
 
         <!-- 3. 핵심 프로젝트 및 장기 목표 -->
-        <div class="mb-10">
+        <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="핵심 프로젝트 (2026년) 목표 매출액" data-ja="コアプロジェクト (2026年) 目標売上高">핵심 프로젝트 (2026년) 목표 매출액</h2>
-            <div class="bg-blue-600 p-8 rounded-xl text-white shadow-xl">
-                <p class="text-xl font-medium mb-3" data-ko="2026년 핵심 동력: 오구라 유나 웹툰" data-ja="2026年 コア動力: 小倉由菜ウェブトゥーン">2026년 핵심 동력: 오구라 유나 웹툰</p>
+            <div class="bg-blue-600 p-6 sm:p-8 rounded-xl text-white shadow-xl">
+                <p class="text-lg sm:text-xl font-medium mb-3" data-ko="2026년 핵심 동력: 오구라 유나 웹툰" data-ja="2026年 コア動力: 小倉由菜ウェブトゥーン">2026년 핵심 동력: 오구라 유나 웹툰</p>
                 <div class="text-4xl sm:text-5xl font-extrabold tracking-tight" data-ko="500,000,000 원" data-ja="500,000,000 원">
                     <span class="text-yellow-300">500,000,000</span> 원
                 </div>
@@ -160,12 +153,12 @@
         </div>
         
         <!-- 4. 웹툰 프로젝트 상세 소개 -->
-        <div class="mb-10">
+        <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="오구라 유나 웹툰 프로젝트 상세" data-ja="小倉由菜ウェブトゥーンプロジェクト詳細">오구라 유나 웹툰 프로젝트 상세</h2>
             <div class="space-y-6 text-gray-700">
                 <div class="p-5 bg-gray-50 rounded-lg shadow-md">
-                    <div class="grid grid-cols-2 gap-4">
-                        <!-- 작가와 기획 분리 -->
+                    <!-- 모바일(기본)에서는 1열, small 화면 이상에서는 2열로 변경 -->
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <div>
                             <p class="text-sm text-gray-500 font-semibold" data-ko="작가" data-ja="作者">작가</p>
                             <p class="text-lg font-bold" data-ko="오구라 유나" data-ja="小倉由菜">오구라 유나</p>
@@ -174,7 +167,6 @@
                             <p class="text-sm text-gray-500 font-semibold" data-ko="기획" data-ja="企画">기획</p>
                             <p class="text-lg font-bold" data-ko="김종혁" data-ja="キム・ジョンヒョク">김종혁</p>
                         </div>
-                        <!-- 기존 항목 유지 -->
                         <div>
                             <p class="text-sm text-gray-500 font-semibold" data-ko="제작 방식" data-ja="制作方法">제작 방식</p>
                             <p class="text-lg font-bold text-purple-700" data-ko="AI 그림 생성 (파트너사 프로그램)" data-ja="AIイラスト生成 (パートナー企業プログラム)">AI 그림 생성 (파트너사 프로그램)</p>
@@ -187,16 +179,15 @@
                             <p class="text-sm text-gray-500 font-semibold" data-ko="1회 구독 가격" data-ja="1話購読価格">1회 구독 가격</p>
                             <p class="text-lg font-bold" data-ko="500 원" data-ja="500 원">500 원</p>
                         </div>
+                        <!-- 추가 항목이 생겨도 유연하게 대응 -->
                     </div>
                 </div>
 
                 <div class="p-5 border border-indigo-200 rounded-lg bg-white">
-                    <!-- 항목 제목 유지 -->
                     <h3 class="text-xl font-bold text-indigo-700 mb-2" data-ko="특징 및 확장성" data-ja="特徴と拡張性">특징 및 확장성</h3>
-                    <!-- 내용 수정 반영 (강조 제거) -->
                     <p class="text-md leading-relaxed" 
-                       data-ko="오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도를 극대화합니다. 그림은 AI 자동 생성 시스템을 통해 제작되므로, 팬들에게는 오구라 유나가 직접 그린 것과 같은 몰입감과 콘텐츠의 빠른 공급 속도를 동시에 제공합니다. 이는 독점적인 수익 모델 구축에 매우 유리하며, 다른 유명 배우들의 IP로도 즉시 확장 가능합니다."
-                       data-ja="小倉由菜本人が「作者」として活動することで、ファン層の注目度を最大化します。 イラストはAI自動生成システムを通じて制作されるため、ファンには 小倉由菜が直接描いたかのような没入感と、コンテンツの迅速な供給速度を同時に提供します。 これは独占的な収益モデル構築に非常に有利であり、他の有名女優のIPへも即座に拡張可能です。">
+                        data-ko="오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도를 극대화합니다. 그림은 AI 자동 생성 시스템을 통해 제작되므로, 팬들에게는 오구라 유나가 직접 그린 것과 같은 몰입감과 콘텐츠의 빠른 공급 속도를 동시에 제공합니다. 이는 독점적인 수익 모델 구축에 매우 유리하며, 다른 유명 배우들의 IP로도 즉시 확장 가능합니다."
+                        data-ja="小倉由菜本人が「作者」として活動することで、ファン層の注目度を最大化します。 イラストはAI自動生成システムを通じて制作されるため、ファンには 小倉由菜が直接描いたかのような没入感と、コンテンツの迅速な供給速度を同時に提供します。 これは独占的な収益モデル構築に非常に有利であり、他の有名女優のIPへも即座に拡張可能です。">
                         오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도를 극대화합니다.
                         그림은 AI 자동 생성 시스템을 통해 제작되므로, 팬들에게는 
                         오구라 유나가 직접 그린 것과 같은 몰입감과 콘텐츠의 빠른 공급 속도를 동시에 제공합니다. 
@@ -207,13 +198,12 @@
         </div>
         
         <!-- 5. 샘플 이미지 링크 클릭 섹션 추가 -->
-        <div class="mt-10 pt-6 border-t border-gray-200">
+        <div class="mt-8 pt-6 border-t border-gray-200">
              <h2 class="section-header !text-lg !mb-0" data-ko="오구라 유나 AI 이미지 샘플" data-ja="小倉由菜 AI画像サンプル">오구라 유나 AI 이미지 샘플</h2>
             <!-- 구글 드라이브 폴더 주소로 직접 연결 -->
             <a href="https://drive.google.com/drive/folders/17Tzh2qP_SNRUb4l31cnHIjuQb2RHTgDQ?usp=sharing" class="click-area" id="sample-link" target="_blank">
                 <span data-ko="링크 클릭" data-ja="リンクをクリック" id="sample-link-text">링크 클릭</span>
             </a>
-            <!-- 이전 주석 삭제 완료 -->
         </div>
 
     </div>
@@ -223,13 +213,10 @@
         const langKo = document.getElementById('lang-ko');
         const langJa = document.getElementById('lang-ja');
         
-        // **오류 수정 완료:** sampleLinkText를 전역으로 접근 가능하도록 함
         const sampleLinkText = document.getElementById('sample-link-text'); 
-
 
         // 언어 선택 버튼의 텍스트를 data-lang-text 속성 값으로 설정
         function setButtonText(lang) {
-            // 버튼 텍스트가 깨지는 현상을 방지하기 위해, 언어 변경 시 텍스트를 재설정
             if (lang === 'ko') {
                 langKo.textContent = '한국어';
                 langJa.textContent = '日本語';
@@ -244,7 +231,6 @@
             langKo.classList.toggle('active', lang === 'ko');
             langJa.classList.toggle('active', lang === 'ja');
             
-            // 버튼 텍스트 업데이트 (JA -> 日本語 반영)
             setButtonText(lang);
 
             // 모든 텍스트 요소를 순회하며 언어 설정
@@ -256,7 +242,7 @@
                     // 1. 텍스트를 먼저 적용합니다.
                     el.textContent = content;
 
-                    // 2. 통화 기호 및 특수 텍스트 처리: '원' 통화를 유지하되 '만원'만 '万円'으로 변환
+                    // 2. 통화 기호 및 특수 텍스트 처리: '만원'만 '万円'으로 변환
                     if (el.tagName === 'TD' || el.tagName === 'P') {
                         if (lang === 'ja') {
                             el.textContent = content.replace(/만원/g, '万円');
@@ -268,11 +254,20 @@
                     // 3. 5억 원 텍스트 처리 (별도로 span과 p 태그에 나뉘어 있음)
                     // 이 부분이 HTML 구조에 의존하므로 신중하게 처리
                     if (el.parentElement && el.parentElement.getAttribute('data-ko') === '500,000,000 원') {
-                         el.textContent = '500,000,000';
-                         if (el.nextSibling) {
-                            el.nextSibling.textContent = ' 원'; 
-                         }
+                        // 자식 span 태그를 찾아서 텍스트만 업데이트
+                        const span = el.querySelector('span');
+                        if (span) {
+                             span.textContent = '500,000,000';
+                             // 텍스트 노드가 원을 가지고 있으므로, 텍스트 노드가 있다면 업데이트
+                             if (el.childNodes[1]) {
+                                el.childNodes[1].textContent = ' 원';
+                             }
+                        } else {
+                            // span이 없는 경우, 전체 텍스트를 다시 설정 (안전 장치)
+                             el.textContent = content;
+                        }
                     }
+                    
                     if (el.parentElement && el.parentElement.getAttribute('data-ko') === '(목표 매출액: 5억 원)') {
                         if (lang === 'ko') {
                             el.textContent = '(목표 매출액: 5억 원)';
