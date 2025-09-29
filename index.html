@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>오구라 유나 프로젝트 목표 매출 제안서</title>
+    <title>오구라 유나 유튜브 목표 매출 제안서</title>
     <!-- Tailwind CSS 로드 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 폰트 설정 및 배경 */
-        /* 글자 깨짐 방지를 위해 시스템 폰트(Apple SD Gothic Neo, Malgun Gothic 등)를 최우선으로 지정 */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+KR:wght@400;700;900&display=swap');
         body {
-            /* 폰트 깨짐 방지를 위해 글꼴 설정을 유지하되, 일부 글자는 JS로 숨김 처리 */
             font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', 'Meiryo', 'MS Gothic', 'Inter', sans-serif;
             background: #f8fafc; /* 라이트 블루 배경 */
             color: #1e293b;
             min-height: 100vh;
-            padding: 1rem 0; /* 모바일에서 상하 패딩을 약간 줄임 */
+            padding: 1rem 0;
         }
         .proposal-container {
             max-width: 900px;
@@ -24,7 +22,8 @@
             background: #ffffff;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            padding: 1rem; /* 모바일 패딩 강화 */
+            /* 모바일 최적화: 좌우 패딩을 충분히 확보 (p-4) */
+            padding: 1.5rem 1rem; 
             transition: all 0.3s;
         }
         @media (min-width: 768px) {
@@ -34,32 +33,38 @@
         }
         /* 섹션 헤더 스타일 */
         .section-header {
-            border-left: 6px solid #1d4ed8; /* 짙은 파란색 강조선 */
+            border-left: 6px solid #1d4ed8; 
             padding-left: 1rem;
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
             font-weight: 700;
             color: #1e40af;
         }
-        /* 링크 클릭 영역 스타일 */
+        
+        /* ========================================
+        링크 클릭 영역 스타일 (터치 영역 강조 및 디자인 통일)
+        ========================================
+        */
         .click-area {
-            display: flex; /* flex로 변경 */
+            display: flex; 
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 80px; /* 모바일에서 높이 약간 줄임 */
-            background-color: #f0f4f8;
-            border: 2px dashed #1d4ed8;
+            height: 80px; /* 충분한 터치 높이 */
+            background-color: #ffffff; 
+            border: none; 
             border-radius: 12px;
             margin-top: 1rem;
-            font-size: 1.125rem; /* 모바일 폰트 크기 조정 */
+            font-size: 1.125rem; 
             font-weight: 700;
             color: #1e40af;
             text-decoration: none;
-            transition: background-color 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
         }
         .click-area:hover {
-            background-color: #e2e8f0;
+            background-color: #f7f7f7; 
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); 
         }
 
         .lang-button {
@@ -78,58 +83,50 @@
         
         <!-- 언어 선택 버튼 -->
         <div class="text-right mb-4">
-            <button id="lang-ko" class="lang-button active text-sm px-3 py-1 border border-gray-300 rounded-l-lg hover:bg-gray-100" data-lang-text="한국어"></button>
-            <button id="lang-ja" class="lang-button text-sm px-3 py-1 border border-gray-300 rounded-r-lg hover:bg-gray-100" data-lang-text="日本語"></button>
+            <button id="lang-ko" class="lang-button active text-sm px-3 py-1 border border-gray-300 rounded-l-lg hover:bg-gray-100" data-lang-text="한국어">한국어</button>
+            <button id="lang-ja" class="lang-button text-sm px-3 py-1 border border-gray-300 rounded-r-lg hover:bg-gray-100" data-lang-text="日本語">日本語</button>
         </div>
 
-        <!-- 1. 제안서 헤더 -->
+        <!-- 1. 제안서 헤더 (제목 변경됨) -->
         <header class="text-center mb-8 sm:mb-10">
-            <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2 leading-snug" data-ko="【오구라 유나】 프로젝트 목표 매출 제안서" data-ja="【小倉由菜】プロジェクト 目標売上提案書">
-                【오구라 유나】 프로젝트 목표 매출 제안서
+            <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2 leading-snug" data-ko="【오구라 유나 유튜브】 목표 매출 제안서" data-ja="【小倉由菜 YouTube】目標売上提案書">
+                【오구라 유나 유튜브】 목표 매출 제안서
             </h1>
-            <!-- 수신/발신 정보 -->
-            <p class="text-md sm:text-lg text-gray-500 font-medium" data-ko="수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스 (Company S)" data-ja="宛先: 株式会社マインズ (Minds) | 差出: カンパニーS (Company S)">
-                수신: 주식회사 마인즈 (Minds) | 발신: 컴퍼니 에스 (Company S)
+            <!-- 수신/발신 정보 삭제 및 '일본내 활동 버젼' 문구로 대체 -->
+            <p class="text-md sm:text-lg text-gray-500 font-medium" data-ko="일본내 활동 버젼" data-ja="日本国内活動バージョン">
+                일본내 활동 버젼
             </p>
         </header>
         
         <!-- 2. 단기 목표 매출 요약 -->
         <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="단기 (2025년 4분기) 목표 매출액" data-ja="短期 (2025年 第4四半期) 目標売上高">단기 (2025년 4분기) 목표 매출액</h2>
-            <div class="bg-indigo-50 p-4 sm:p-6 rounded-xl shadow-inner">
+            <!-- 배경색을 흰색으로 변경하고 그림자 적용 -->
+            <div class="bg-white p-4 sm:p-6 rounded-xl shadow-md"> 
                 
                 <!-- 매출 요약 테이블 -->
+                <!-- overflow-x-auto 유지로 모바일 횡스크롤 대응 -->
                 <div class="overflow-x-auto rounded-lg border border-indigo-200">
                     <table class="min-w-full divide-y divide-indigo-200">
                         <thead>
                             <tr class="bg-indigo-100 text-sm font-semibold text-gray-700">
-                                <!-- 모바일 최적화를 위해 폰트 크기와 패딩을 줄임 -->
                                 <th class="px-2 py-2 text-left text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="기간" data-ja="期間">기간</th>
                                 <th class="px-2 py-2 text-left text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="아이템" data-ja="アイテム">아이템</th>
                                 <th class="px-2 py-2 text-right text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="매출 목표 (총액)" data-ja="売上目標 (総額)">매출 목표 (총액)</th>
-                                <th class="px-2 py-2 text-right text-xs sm:px-4 sm:py-3 sm:text-sm" data-ko="마인즈 기여분/수익분" data-ja="マインズ貢献分/収益分">마인즈 기여분/수익분</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-indigo-100 text-gray-700">
-                            <!-- 10월 E-sim -->
-                            <tr class="hover:bg-indigo-50 transition-colors">
-                                <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="10월" data-ja="10月">10월</td>
-                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="E-sim (150+150+150)" data-ja="E-sim (150+150+150)">E-sim (150+150+150)</td>
-                                <td class="px-2 py-2 text-right font-bold text-gray-800 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="4,500,000 원" data-ja="4,500,000 원">4,500,000 원</td>
-                                <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="-" data-ja="-">-</td>
-                            </tr>
+                            
                             <!-- 11월 향수 -->
                             <tr class="hover:bg-indigo-50 transition-colors">
                                 <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="11월" data-ja="11月">11월</td>
-                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="남성용 향수 런칭" data-ja="男性用香水ローンチ">남성용 향수 런칭</td>
-                            <td class="px-2 py-2 text-right font-bold text-green-700 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="7,000,000 원" data-ja="7,000,000 원">7,000,000 원</td>
-                            <td class="px-2 py-2 text-right text-green-600 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="50% 협의 (350만원 상당)" data-ja="50%協議 (350万円相当)">50% 협의 (350만원 상당)</td>
+                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="남성용 향수 PPL" data-ja="男性用香水PPL">남성용 향수 PPL</td> 
+                                <td class="px-2 py-2 text-right font-bold text-gray-700 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="7,000,000 원" data-ja="7,000,000 원">7,000,000 원</td>
                             </tr>
                             <!-- 12월 협의 중 -->
                             <tr class="hover:bg-indigo-50 transition-colors">
                                 <td class="px-2 py-2 font-bold text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="12월" data-ja="12月">12월</td>
-                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="신규 프로젝트" data-ja="新規プロジェクト">신규 프로젝트</td>
-                                <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="협의 중" data-ja="協議中">협의 중</td>
+                                <td class="px-2 py-2 text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="신규 PPL 출연" data-ja="新規PPL出演">신규 PPL 출연</td>
                                 <td class="px-2 py-2 text-right text-sm sm:px-4 sm:py-3 sm:text-base" data-ko="협의 중" data-ja="協議中">협의 중</td>
                             </tr>
                         </tbody>
@@ -141,12 +138,20 @@
         <!-- 3. 핵심 프로젝트 및 장기 목표 -->
         <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="핵심 프로젝트 (2026년) 목표 매출액" data-ja="コアプロジェクト (2026年) 目標売上高">핵심 프로젝트 (2026년) 목표 매출액</h2>
-            <div class="bg-blue-600 p-6 sm:p-8 rounded-xl text-white shadow-xl">
-                <p class="text-lg sm:text-xl font-medium mb-3" data-ko="2026년 핵심 동력: 오구라 유나 웹툰" data-ja="2026年 コア動力: 小倉由菜ウェブトゥーン">2026년 핵심 동력: 오구라 유나 웹툰</p>
+            <!-- 흰색 배경 및 그림자 적용 -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md text-gray-900 border border-gray-100">
+                <!-- 핵심 동력 띄어쓰기 수정 및 색상 조정 -->
+                <p class="text-lg sm:text-xl font-medium mb-3 text-gray-700" 
+                    data-ko="2026년 핵심 동력: 오구라 유나 유튜브를 통한 웹툰 제작" 
+                    data-ja="2026年 コア動力: 小倉由菜 YouTubeを通じたウェブトゥーン制作">
+                    2026년 핵심 동력: 오구라 유나 유튜브를 통한 웹툰 제작
+                </p>
+                <!-- 매출 금액 색상 조정 -->
                 <div class="text-4xl sm:text-5xl font-extrabold tracking-tight" data-ko="500,000,000 원" data-ja="500,000,000 원">
-                    <span class="text-yellow-300">500,000,000</span> 원
+                    <span class="text-indigo-600">500,000,000</span> 원
                 </div>
-                <p class="mt-3 text-sm text-blue-200" data-ko="(목표 매출액: 5억 원)" data-ja="(目標売上高: 5億 원)">
+                <!-- 설명 텍스트 색상 조정 -->
+                <p class="mt-3 text-sm text-gray-500" data-ko="(목표 매출액: 5억 원)" data-ja="(目標売上高: 5억 원)">
                     (목표 매출액: 5억 원)
                 </p>
             </div>
@@ -155,52 +160,72 @@
         <!-- 4. 웹툰 프로젝트 상세 소개 -->
         <div class="mb-8 sm:mb-10">
             <h2 class="section-header" data-ko="오구라 유나 웹툰 프로젝트 상세" data-ja="小倉由菜ウェブトゥーンプロジェクト詳細">오구라 유나 웹툰 프로젝트 상세</h2>
-            <div class="space-y-6 text-gray-700">
-                <div class="p-5 bg-gray-50 rounded-lg shadow-md">
-                    <!-- 모바일(기본)에서는 1열, small 화면 이상에서는 2열로 변경 -->
-                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <div>
-                            <p class="text-sm text-gray-500 font-semibold" data-ko="작가" data-ja="作者">작가</p>
-                            <p class="text-lg font-bold" data-ko="오구라 유나" data-ja="小倉由菜">오구라 유나</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500 font-semibold" data-ko="기획" data-ja="企画">기획</p>
-                            <p class="text-lg font-bold" data-ko="김종혁" data-ja="キム・ジョンヒョク">김종혁</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500 font-semibold" data-ko="제작 방식" data-ja="制作方法">제작 방식</p>
-                            <p class="text-lg font-bold text-purple-700" data-ko="AI 그림 생성 (파트너사 프로그램)" data-ja="AIイラスト生成 (パートナー企業プログラム)">AI 그림 생성 (파트너사 프로그램)</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500 font-semibold" data-ko="연재 주기" data-ja="連載頻度">연재 주기</p>
-                            <p class="text-lg font-bold" data-ko="주 2~3회" data-ja="週2〜3回">주 2~3회</p>
-                        </div>
-                        <div>
-                            <p class="text-sm text-gray-500 font-semibold" data-ko="1회 구독 가격" data-ja="1話購読価格">1회 구독 가격</p>
-                            <p class="text-lg font-bold" data-ko="500 원" data-ja="500 원">500 원</p>
-                        </div>
-                        <!-- 추가 항목이 생겨도 유연하게 대응 -->
+            
+            <!-- 상세 정보 카드 -->
+            <div class="p-5 bg-white rounded-lg shadow-md border border-gray-100 text-gray-700">
+                
+                <!-- 1. 상세 정보 (모바일에서는 1열, 데스크톱에서는 2열) -->
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="작가" data-ja="作者">작가</p>
+                        <p class="text-lg font-bold" data-ko="오구라 유나" data-ja="小倉由菜">오구라 유나</p>
                     </div>
-                </div>
-
-                <div class="p-5 border border-indigo-200 rounded-lg bg-white">
-                    <h3 class="text-xl font-bold text-indigo-700 mb-2" data-ko="특징 및 확장성" data-ja="特徴と拡張性">특징 및 확장성</h3>
-                    <p class="text-md leading-relaxed" 
-                        data-ko="오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도를 극대화합니다. 그림은 AI 자동 생성 시스템을 통해 제작되므로, 팬들에게는 오구라 유나가 직접 그린 것과 같은 몰입감과 콘텐츠의 빠른 공급 속도를 동시에 제공합니다. 이는 독점적인 수익 모델 구축에 매우 유리하며, 다른 유명 배우들의 IP로도 즉시 확장 가능합니다."
-                        data-ja="小倉由菜本人が「作者」として活動することで、ファン層の注目度を最大化します。 イラストはAI自動生成システムを通じて制作されるため、ファンには 小倉由菜が直接描いたかのような没入感と、コンテンツの迅速な供給速度を同時に提供します。 これは独占的な収益モデル構築に非常に有利であり、他の有名女優のIPへも即座に拡張可能です。">
-                        오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도를 극대화합니다.
-                        그림은 AI 자동 생성 시스템을 통해 제작되므로, 팬들에게는 
-                        오구라 유나가 직접 그린 것과 같은 몰입감과 콘텐츠의 빠른 공급 속도를 동시에 제공합니다. 
-                        이는 독점적인 수익 모델 구축에 매우 유리하며, 다른 유명 배우들의 IP로도 즉시 확장 가능합니다.
-                    </p>
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="기획" data-ja="企画">기획</p>
+                        <p class="text-lg font-bold" data-ko="김종혁" data-ja="キム・ジョンヒョク">김종혁</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="제작 방식" data-ja="制作方法">제작 방식</p>
+                        <p class="text-lg font-bold text-gray-900" data-ko="AI 그림 생성 (파트너사 프로그램)" data-ja="AIイラスト生成 (パートナー企業プログラム)">AI 그림 생성 (파트너사 프로그램)</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="연재 주기" data-ja="連載頻度">연재 주기</p>
+                        <p class="text-lg font-bold" data-ko="주 2~3회" data-ja="週2〜3回">주 2~3회</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="총 연재 횟수" data-ja="総連載回数">총 연재 횟수</p>
+                        <p class="text-lg font-bold" data-ko="100회" data-ja="100回">100회</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 font-semibold" data-ko="1회 구독 가격" data-ja="1話購読価格">1회 구독 가격</p>
+                        <p class="text-lg font-bold" data-ko="500~ 원" data-ja="500~ 원">500~ 원</p>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- 5. 특징 및 확장성 (분리된 새로운 섹션) -->
+        <div class="mb-8 sm:mb-10">
+            <h2 class="section-header" data-ko="특징 및 확장성" data-ja="特徴と拡張性">특징 및 확장성</h2>
+            
+            <!-- 특징 및 확장성 카드 -->
+            <div class="p-5 bg-white rounded-lg shadow-md border border-gray-100 text-gray-700">
+                <!-- 리스트 형태로 변경하여 가독성 개선 -->
+                <ul class="list-disc ml-5 space-y-2 text-md leading-relaxed">
+                    <!-- 모바일 가독성: LI 요소에 적절한 간격 유지 -->
+                    <li class="font-medium" data-ko="쌍방향 소통: 유튜브를 통한 팬들과의 실시간 소통으로 작품 기획 및 방향을 함께 진행." data-ja="双方向コミュニケーション: YouTubeチャンネルを通じたファンとのリアルタイム連携により、作品の企画や方向性を共に進行。">
+                        쌍방향 소통: 유튜브를 통한 팬들과의 실시간 소통으로 작품 기획 및 방향을 함께 진행.
+                    </li>
+                    <li class="font-medium" data-ko="팬덤 극대화: 오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도 및 몰입감 극대화." data-ja="ファン層最大化: 小倉由菜本人が「作者」として活動し、ファン層の注目度と没入感を最大化。">
+                        팬덤 극대화: 오구라 유나 본인이 '작가'로 활동하여 팬덤의 주목도 및 몰입감 극대화.
+                    </li>
+                    <li class="font-medium" data-ko="고속 콘텐츠 공급: AI 자동 생성 시스템으로 빠르고 안정적인 콘텐츠 공급 가능." data-ja="高速コンテンツ供給: AI自動生成システムにより、迅速かつ安定したコンテンツ供給が可能。">
+                        고속 콘텐츠 공급: AI 자동 생성 시스템으로 빠르고 안정적인 콘텐츠 공급 가능.
+                    </li>
+                    <li class="font-medium" data-ko="독점적 수익 모델: 콘텐츠 몰입도와 빠른 공급 속도를 바탕으로 독점적인 수익 모델 구축에 유리." data-ja="独占的収益モデル: コンテンツの没入感と供給速度を基盤に、独占的な収益모델 구축에 유리.">
+                        독점적 수익 모델: 콘텐츠 몰입도와 빠른 공급 속도를 바탕으로 독점적인 수익 모델 구축에 유리.
+                    </li>
+                    <li class="font-medium" data-ko="확장성: 다른 유명 배우들의 IP로 즉시 확장 가능." data-ja="拡張性: 他の有名女優のIPへも即시 확장 가능。">
+                        확장성: 다른 유명 배우들의 IP로 즉시 확장 가능.
+                    </li>
+                </ul>
+            </div>
+        </div>
         
-        <!-- 5. 샘플 이미지 링크 클릭 섹션 추가 -->
-        <div class="mt-8 pt-6 border-t border-gray-200">
-             <h2 class="section-header !text-lg !mb-0" data-ko="오구라 유나 AI 이미지 샘플" data-ja="小倉由菜 AI画像サンプル">오구라 유나 AI 이미지 샘플</h2>
-            <!-- 구글 드라이브 폴더 주소로 직접 연결 -->
+        <!-- 6. 샘플 이미지 링크 클릭 섹션 -->
+        <div class="mt-8">
+             <h2 class="section-header" data-ko="오구라 유나 AI 이미지 샘플" data-ja="小倉由菜 AI画像サンプル">오구라 유나 AI 이미지 샘플</h2>
+            <!-- 터치 영역 크기 유지 및 디자인 통일 -->
             <a href="https://drive.google.com/drive/folders/17Tzh2qP_SNRUb4l31cnHIjuQb2RHTgDQ?usp=sharing" class="click-area" id="sample-link" target="_blank">
                 <span data-ko="링크 클릭" data-ja="リンクをクリック" id="sample-link-text">링크 클릭</span>
             </a>
@@ -217,13 +242,8 @@
 
         // 언어 선택 버튼의 텍스트를 data-lang-text 속성 값으로 설정
         function setButtonText(lang) {
-            if (lang === 'ko') {
-                langKo.textContent = '한국어';
-                langJa.textContent = '日本語';
-            } else {
-                langKo.textContent = '한국어';
-                langJa.textContent = '日本語';
-            }
+            langKo.textContent = langKo.getAttribute('data-lang-text');
+            langJa.textContent = langJa.getAttribute('data-lang-text');
         }
 
         function setLanguage(lang) {
@@ -243,7 +263,7 @@
                     el.textContent = content;
 
                     // 2. 통화 기호 및 특수 텍스트 처리: '만원'만 '万円'으로 변환
-                    if (el.tagName === 'TD' || el.tagName === 'P') {
+                    if (el.tagName === 'TD' || el.tagName === 'P' || el.tagName === 'LI') {
                         if (lang === 'ja') {
                             el.textContent = content.replace(/만원/g, '万円');
                         } else {
@@ -253,14 +273,14 @@
                     
                     // 3. 5억 원 텍스트 처리 (별도로 span과 p 태그에 나뉘어 있음)
                     // 이 부분이 HTML 구조에 의존하므로 신중하게 처리
-                    if (el.parentElement && el.parentElement.getAttribute('data-ko') === '500,000,000 원') {
+                    if (el.getAttribute('data-ko') === '500,000,000 원') {
                         // 자식 span 태그를 찾아서 텍스트만 업데이트
                         const span = el.querySelector('span');
                         if (span) {
-                             span.textContent = '500,000,000';
+                            span.textContent = '500,000,000';
                              // 텍스트 노드가 원을 가지고 있으므로, 텍스트 노드가 있다면 업데이트
                              if (el.childNodes[1]) {
-                                el.childNodes[1].textContent = ' 원';
+                                el.childNodes[1].textContent = lang === 'ja' ? ' 원' : ' 원'; 
                              }
                         } else {
                             // span이 없는 경우, 전체 텍스트를 다시 설정 (안전 장치)
@@ -268,29 +288,19 @@
                         }
                     }
                     
-                    if (el.parentElement && el.parentElement.getAttribute('data-ko') === '(목표 매출액: 5억 원)') {
+                    if (el.getAttribute('data-ko') === '(목표 매출액: 5억 원)') {
                         if (lang === 'ko') {
                             el.textContent = '(목표 매출액: 5억 원)';
                         } else {
-                            el.textContent = '(目標売上高: 5億 원)'; // 일본어일 때도 '원'으로 고정
+                            el.textContent = '(目標売上高: 5억 원)'; 
                         }
                     }
-                    // 1회 구독 가격 처리 (500 원/円 처리)
-                    if (el.getAttribute('data-ko') === '500 원') {
-                        el.textContent = '500 원'; // 일본어일 때도 '원'으로 고정
+                    // 1회 구독 가격 처리 (500~ 원/円 처리)
+                    if (el.getAttribute('data-ko') === '500~ 원') {
+                        el.textContent = '500~ 원';
                     }
                 }
             });
-            
-            // 11월 금액 통화 수정 (별도 처리)
-            const row11 = document.querySelector('tr:nth-child(2) td:nth-child(4)');
-            if (row11) {
-                if (lang === 'ko') {
-                    row11.textContent = '50% 협의 (350만원 상당)';
-                } else {
-                    row11.textContent = '50%協議 (350万円相当)'; 
-                }
-            }
             
             // 링크 텍스트 업데이트
             if (sampleLinkText) {
@@ -303,8 +313,6 @@
         
         document.addEventListener('DOMContentLoaded', () => {
             // 초기 로드 시 버튼 텍스트 설정
-            langKo.setAttribute('data-lang-text', '한국어');
-            langJa.setAttribute('data-lang-text', '日本語');
             setLanguage(document.documentElement.lang || 'ko');
         });
 
